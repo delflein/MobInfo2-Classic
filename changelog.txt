@@ -1,0 +1,18 @@
+legend:
++ = added feature
+* = changed feature (bugfixes, changed behavior, etc.)
+- = removed feature
+
+version 7.0.0 - (30.08.2019)
+* Updated for WoW 1.13.2 Classic Client
+
+version 6.0.1 - beta 1 (07-25-2015 08:50 UTC)
+* updated toc for WoW 6.2.x
+
+version 6.0.0 (12-13-2014 21:44 UTC)
+* no changes compared to 6.0.0 - beta 1
+
+version 6.0.0 - beta 1 (11-25-2014 07:04 UTC)
+* fixed checkboxes in config dialogs being stuck in "on"-positions (fixes Curse ticket #108)
+* updated readme file
+* updated toc for WoW 6.0.x

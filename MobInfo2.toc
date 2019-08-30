@@ -1,0 +1,48 @@
+﻿## Interface: 60200
+## Title: MobInfo2
+## Title-zhTW: MobInfo 怪物資料庫
+## Version: 7.0.0
+## Authors: TheRealHypo, Luke1410, Speedwaystar, Brandmauer, Speeddymon, Skeeve, Dizzarian
+## Notes: Adds information about the hovered mob to the tooltip and shows health/mana information in the target frame
+## Notes-deDE: Erweitert den Tooltip eines Gegners um Informationen zu Gesundheit, geplünderte Gegenstände usw. und ergänzt das Zielfenster um Gesundheit/Mana.
+## Notes-zhTW: 顯示怪物的血量/法力，以及其掉落物品，出現地點，抵抗，免疫資料及是否逃跑的相關資訊。繁中化：|cFF00FF00艾娜羅沙|r@奧妮克希亞
+## SavedVariables: MobInfoConfig, MobInfoDB, MobHealthDB, MobHealthPlayerDB, MI2_ItemNameTable, MI2_CharTable, MI2_ZoneTable
+## Dependencies: 
+## OptionalDeps: LibStub, LibPeriodicTable-3.1, LibPeriodicTable-3.1-Tradeskill
+## X-Curse-Packaged-Version: 7.0.0
+## X-Curse-Project-Name: MobInfo2
+## X-Curse-Project-ID: mobinfo2
+## X-Curse-Repository-ID: wow/mobinfo2/mainline
+
+#@no-lib-strip@
+Libs\LibStub\LibStub.lua
+Libs\LibPeriodicTable-3.1\LibPeriodicTable-3.1\LibPeriodicTable-3.1.lua
+Libs\LibPeriodicTable-3.1\LibPeriodicTable-3.1-Tradeskill\LibPeriodicTable-3.1-Tradeskill.lua
+#@end-no-lib-strip@
+
+## localization files
+Localization\localization.de.lua 
+Localization\localization.en.lua 
+Localization\localization.es.lua
+Localization\localization.fr.lua 
+Localization\localization.pl.lua 
+Localization\localization.ru.lua 
+Localization\localization.tw.lua 
+
+# main AddOns source code
+MobInfo2.lua
+MI2_Import.lua 
+MI2_Events.lua
+MI2_ItemData.lua 
+MI2_Health.lua 
+MI2_Slash.lua 
+MI2_Search.lua
+MI2_Config.lua
+MI2_Tooltip.lua
+# DataDumper.lua
+
+## frame definition files
+Frames\MobInfo2.xml
+Frames\MI2_Config.xml
+Frames\MI2_Tooltip.xml
+
