@@ -1212,6 +1212,7 @@ function MI2_RecordLocationAndType( mobIndex, mobData )
 
 	if MobInfoConfig.SaveBasicInfo == 1 then
 		local map = C_Map.GetBestMapForUnit("player")
+		if not map then return end
 		local position = C_Map.GetPlayerMapPosition(map, "player")
 		x = floor( position.x * 100.0 )
 		y = floor( position.y * 100.0 )
