@@ -1,12 +1,18 @@
-********************************
-***     Beta announcement    ***
-********************************
-The addon was moved to another maintainer (Luke1410). This early beta is
-provided as a quick hotfix to restore compatibility with WoW 6.0.0. The
-focus for this version is to restore the functionality of the addon as
-it was in its previous releases. No affort was yet undertaken to fix any
-issues which were present in earlier versions.
+******************************
+***     Classic Info       ***
+******************************
+I (TheRealHypo) took up this Addon from an earlier Version, that had already more
+similarities with the Classic version of MobInfo2. Started to fix all Errors that
+appeared while playing my first Classic characters. It's now in a playable State
+and everytime a new Error comes up, I'll get to fixing it asap. 
 
+I did not start this project, I do not claim to have written this code, while looking
+through it, you'll notice a lot of people who have contributed to this project 
+over the years.
+
+Have Fun and Enjoy Classic ! Report any problems that appear in the Issues Panel. 
+
+The below information is untouched by myself.
 
 ******************************
 ***     About MobInfo-2    ***
@@ -45,7 +51,7 @@ Health - current and total health of the mob
 Mana - current and total mana of the mob
 Damage - min/max damage range of Mob against you (stored per char)
 DPS - your DPS (damage per second) against the Mob (stored per char)
-Kills - number of times you have killed the mob (stored per char)
+-- Kills - number of times you have killed the mob (stored per char) -- Currently not working
 Total Looted - number of times you have looted the mob
 Empty Loots - number of times you found empty loot on the mob
 XP - actual LAST xp amount you gained from the mob
@@ -210,104 +216,6 @@ tables found in: Auctioneer, PriceMaster, and WoW-Econ.
 
 About once every half year I update the MobInfo table with the most up-to-date prices and add 
 vendor prices for new items that have been found.
-
-
-
-***-----------------------------------------------***
-***-----------------------------------------------***
-             MobInfo-2 Version History
-***-----------------------------------------------***
-***-----------------------------------------------***
-
-3.83
-  * fixed the Delete Database-Buttons
-    (hopefully I have found all errors now!) 
-
-3.82
-  * fixed Dropdown-menus now!
-    Sorry to all, because I only checked the tickets and not checked the comments.
-    Sorry again for my bad test before release a new version (I only looked for bug messages).
-    Special thanks goes to Speedwaystar for his very good Comment!
-  * changed the Itemvalue-Function, now the addon is using the price, we are 
-    getting directly from WOW-Server. This should solve the issue, that we don't 
-    have prices for the items new in WotLK (3.x) and Cata (4.x). MI2_ItemData
-    is used as fallback for sure, but I plan to remove it in future versions.
-    Thanks goes to next96
-  * some minor fixes and improvements
-
-3.81
-  * fixed: Command line options (/mi2 /Mobinfo2 /mobinfo) was not working in v3.80
-    => solved Ticket 25, thanks Speeddymon
-
-3.80
-  * fixed the 3.2 PTR bug from Version 3.73 / 3.74 on a bether way
-  * fixed hopefully all bugs, so that the Addon is working for 4.0.1
-  * Upgrade Loottable in Mobinfo2 (taken from the old Mobinfo3) 
-  * Bether UnitClassification: rare (!), elite (+), rareelite (!+), worldboss (++)
-  * Changed priority of itemvalue determination a little bit
-  * For former users of Mobinfo3  can use the Mobinfo3 database:
-    - Please rename the file MobInfo3.lua into Mobinfo2.lua in the WOW-Folder
-      WTF\Account\%YOUR_ACCOUNT%\SavedVariables)  
-    - or you can use the Import function
-
-3.75
-  * changed: version is now repository keyword in developer working copy
-  * updated: changelog
-
-3.74
-  * fixed: Fixed change for 3.2 PTR to work on 3.3 and above as well :-/
-
-3.73
-  * fixed: added changes for 3.2 PTR based on GetBuildInfo()
-
-3.72
-  * fixed: scroll error in search frame
-
-3.71
-  * fixed: added an old module into the system to tie it all together while I attempt to track down the bug.
-
-3.70
-  * fixed: A host of errors caused by the newest patch which resulted in cascading errors.  
-    WoW now provides MobHealth info so I am slowly weaning the modules off of the calculated data.  
-    This could cause random errors but I have yet to see any.  I am doing it this way to get a working 
-    mod out quicker and to avoid rewriting the entire thing.
-
-3.61
-  * fixed: kills for Mobs that give no XP were not being counted  
-  * conversion support for "DropRate" data removed
-  
-3.60
-  * updated to be compatible with WoW 2.40
-  * fixed: Mob class not being shown correctly (thanks to Zergreth for heads up and the fix)
-  * fixed: health values from Beast Lore will no longer get lost
-  * fixed: show BeastLore extra info correctly in MobInfo tooltip
-  * fixed: nil bug on line 304 when using CowTip			  
-
-3.52
-  * updated the MobInfo built-in item price table
-  * show NPC profession in NPC tooltip
-  * use unit interaction color (green, yellow, red) for MobInfo tooltip frame	  
-
-3.51
-  * fixed a nil bug when hovering over items in item search result
-  * fixed : search result sort by item count did not sort correctly
-  * fixed a bug causing NPCs to get added to the MobInfo database
-  * improved search speed when searching for items
-  * do not show class for NPCs
-	  
-3.50
-  * support 4 new skinning loot items
-  * show the MobInfo tooltip also for NPCs
-  * new search page option: max times looted
-  * MobInfo built-in search page now searches in the background without blocking	 		  
-  * attempted to fix the bug where the looting rights line for corpses was not shown in the MobInfo tooltip
-  * fixed nil bug when opening soft-shelled clam
-	  
-
-Known Problems / Limitations:
-  * several localisations do not work and must be updated: TW, PL
-  * localisations that urgently require updates: FR, ES
-
 
 (for previous version info or any questions regarding MobInfo-2 please visit 
 http://www.dizzarian.com/forums/viewforum.php?f=16)
