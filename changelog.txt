@@ -3,6 +3,9 @@ legend:
 * = changed feature (bugfixes, changed behavior, etc.)
 - = removed feature
 
+version 1.13.2.2 - (08.09.2019)
+* Fixed an Error when mapID was nil in dungeons.
+
 version 1.13.2 - (30.08.2019)
 * Updated for WoW 1.13.2 Classic Client
 
