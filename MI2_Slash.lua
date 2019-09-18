@@ -70,6 +70,23 @@ end -- MI2_SlashAction_AllOff
 --
 function MI2_RegisterWithAddonManagers(self)
 
+	-- register with titan panel
+	local LDBObj = LibStub("LibDataBroker-1.1"):NewDataObject("MobInfo2", {
+		type = "launcher",
+		label = "MobInfo2",
+		icon = "Interface\\CharacterFrame\\TemporaryPortrait-Monster",
+		OnClick = function(_, msg)
+			if msg == "LeftButton" then
+				MI2_SlashParse("", self);
+			end
+		end,
+		OnTooltipShow = function(tooltip)
+		if not tooltip or not tooltip.AddLine then return end
+		tooltip:AddLine("MobInfo2")
+		tooltip:AddLine("|cffffffffClick|r to toggle options")
+		end,
+	})
+	
 	-- register with myAddons manager
 	if ( myAddOnsFrame_Register ) then
 		local mobInfo2Details = {
