@@ -3,7 +3,7 @@
 --
 -- Main module of MobInfo-2 AddOn
 
-miVersionNo = '1.13.2'
+miVersionNo = '11302.04'
 --
 -- MobInfo-2 is a World of Warcraft AddOn that provides you with useful
 -- additional information about Mobs (ie. opponents/monsters). It adds
@@ -318,11 +318,6 @@ function MI2_GetUnitBasedMobData( mobIndex, mobData, unitId )
 	end
 end -- MI2_GetUnitBasedMobData()
 
-function MI2_GetMobCache() 
-	return MI2_MobCache
-end
-
-
 -----------------------------------------------------------------------------
 -- MI2_FetchMobData()
 --
@@ -372,17 +367,11 @@ function MI2_FetchCombinedMob( mobName, mobLevel, unit )
 	local combined = {}
 	local minL, maxL = mobLevel, mobLevel
 	
-	-- Check if CombinedMode is active
 	if  MobInfoConfig.CombinedMode == 1 and mobLevel > 0 then
-		-- Iterate from 4 level below to 4 level above target
 		for level = mobLevel-4, mobLevel+4, 1 do
-			-- Do not check current Level
 			if level ~= mobLevel  then
-				-- Create Index for current iteration level
 				local mobIndex = mobName..":"..level
-				-- Check if mobIndex exists in DB
 				if MobInfoDB[mobIndex] then
-					-- Fetch Data from DB
 					local dataToCombine = MI2_FetchMobData( mobIndex )
 					MI2_AddTwoMobs( combined, dataToCombine )
 					minL = min( minL, level )
@@ -393,7 +382,6 @@ function MI2_FetchCombinedMob( mobName, mobLevel, unit )
 	end
 	
 	local mobIndex = mobName..":"..mobLevel
-	-- Fetch target level MobData
 	local mobData = MI2_FetchMobData( mobIndex )
 	MI2_AddTwoMobs( combined, mobData )
 	MI2_GetUnitBasedMobData( mobIndex, combined, unit )
@@ -2241,7 +2229,6 @@ function MI2_BuildItemDataTooltip( itemName )
 			resultList[mobName] = itemData
 			sortList[numMobs] = itemData
 		end
-		
 		itemData.loots = itemData.loots + (mobData.loots or 0)
 		itemData.count = itemData.count + itemAmount
 		if itemData.loots > 0 then
