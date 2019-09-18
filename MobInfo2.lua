@@ -3,7 +3,7 @@
 --
 -- Main module of MobInfo-2 AddOn
 
-miVersionNo = '1.13.2'
+miVersionNo = '11302.04'
 --
 -- MobInfo-2 is a World of Warcraft AddOn that provides you with useful
 -- additional information about Mobs (ie. opponents/monsters). It adds
@@ -318,7 +318,6 @@ function MI2_GetUnitBasedMobData( mobIndex, mobData, unitId )
 	end
 end -- MI2_GetUnitBasedMobData()
 
-
 -----------------------------------------------------------------------------
 -- MI2_FetchMobData()
 --
@@ -367,7 +366,7 @@ end -- MI2_FetchMobData()
 function MI2_FetchCombinedMob( mobName, mobLevel, unit )
 	local combined = {}
 	local minL, maxL = mobLevel, mobLevel
-
+	
 	if  MobInfoConfig.CombinedMode == 1 and mobLevel > 0 then
 		for level = mobLevel-4, mobLevel+4, 1 do
 			if level ~= mobLevel  then
@@ -381,9 +380,9 @@ function MI2_FetchCombinedMob( mobName, mobLevel, unit )
 			end
 		end
 	end
-
+	
 	local mobIndex = mobName..":"..mobLevel
-	local mobData = MI2_FetchMobData( mobName..":"..mobLevel )
+	local mobData = MI2_FetchMobData( mobIndex )
 	MI2_AddTwoMobs( combined, mobData )
 	MI2_GetUnitBasedMobData( mobIndex, combined, unit )
 
@@ -408,6 +407,7 @@ function MI2_DecodeBasicMobData( mobInfo, mobData, mobIndex )
 
 	-- decode mob basic info: loots, empty loots, experience, cloth count, money looted, item value looted, mob type
 	if mobInfo.bi then
+		--17/4/0/118/0///0
 		local a,b,lt,el,cp,iv,cc,c,mt,sc = string.find( mobInfo.bi, "(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)")
 		a = tonumber(a) or 0
 		b = tonumber(b) or 0
@@ -1221,8 +1221,9 @@ function MI2_RecordLocationAndType( mobIndex, mobData )
 		MI2_StoreLocation( mobIndex, mobData.location )
 	end
 
---	if MobInfoConfig.SaveBasicInfo == 1 and mobData.mobType > 1 then
-	if MobInfoConfig.SaveBasicInfo == 1 then
+-- Fixed in version 11302.04 We can't save BasicInfo here if in previous steps mobData got combined.
+--	if MobInfoConfig.SaveBasicInfo == 1 and MobInfoConfig.CombinedMode == 0 then
+	if MobInfoConfig.SaveBasicInfo == 1 and MobInfoConfig.CombinedMode == 0 then
 		MI2_StoreBasicInfo( mobIndex, mobData )
 	end
 end -- MI2_RecordLocationAndType()
@@ -2228,7 +2229,6 @@ function MI2_BuildItemDataTooltip( itemName )
 			resultList[mobName] = itemData
 			sortList[numMobs] = itemData
 		end
-
 		itemData.loots = itemData.loots + (mobData.loots or 0)
 		itemData.count = itemData.count + itemAmount
 		if itemData.loots > 0 then

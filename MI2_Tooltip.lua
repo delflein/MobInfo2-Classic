@@ -489,6 +489,8 @@ function MI2_CreateTooltip( name, level, unit, isMob )
 	if name == nil then return end
 	local mobIndex = name..":"..level
 	local mobData = MI2_BuildTooltipMob( name, level, unit, isMob )
+	
+	-- Pay attention at this point mobData could be combined ! ... Do not save Basic Information without checking.
 	if unit and isMob then
 		MI2_RecordLocationAndType( mobIndex, mobData )
 	end
