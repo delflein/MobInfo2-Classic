@@ -318,6 +318,10 @@ function MI2_GetUnitBasedMobData( mobIndex, mobData, unitId )
 	end
 end -- MI2_GetUnitBasedMobData()
 
+function MI2_GetMobCache() 
+	return MI2_MobCache
+end
+
 
 -----------------------------------------------------------------------------
 -- MI2_FetchMobData()
@@ -367,12 +371,18 @@ end -- MI2_FetchMobData()
 function MI2_FetchCombinedMob( mobName, mobLevel, unit )
 	local combined = {}
 	local minL, maxL = mobLevel, mobLevel
-
+	
+	-- Check if CombinedMode is active
 	if  MobInfoConfig.CombinedMode == 1 and mobLevel > 0 then
+		-- Iterate from 4 level below to 4 level above target
 		for level = mobLevel-4, mobLevel+4, 1 do
+			-- Do not check current Level
 			if level ~= mobLevel  then
+				-- Create Index for current iteration level
 				local mobIndex = mobName..":"..level
+				-- Check if mobIndex exists in DB
 				if MobInfoDB[mobIndex] then
+					-- Fetch Data from DB
 					local dataToCombine = MI2_FetchMobData( mobIndex )
 					MI2_AddTwoMobs( combined, dataToCombine )
 					minL = min( minL, level )
@@ -381,9 +391,10 @@ function MI2_FetchCombinedMob( mobName, mobLevel, unit )
 			end
 		end
 	end
-
+	
 	local mobIndex = mobName..":"..mobLevel
-	local mobData = MI2_FetchMobData( mobName..":"..mobLevel )
+	-- Fetch target level MobData
+	local mobData = MI2_FetchMobData( mobIndex )
 	MI2_AddTwoMobs( combined, mobData )
 	MI2_GetUnitBasedMobData( mobIndex, combined, unit )
 
@@ -408,6 +419,7 @@ function MI2_DecodeBasicMobData( mobInfo, mobData, mobIndex )
 
 	-- decode mob basic info: loots, empty loots, experience, cloth count, money looted, item value looted, mob type
 	if mobInfo.bi then
+		--17/4/0/118/0///0
 		local a,b,lt,el,cp,iv,cc,c,mt,sc = string.find( mobInfo.bi, "(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)")
 		a = tonumber(a) or 0
 		b = tonumber(b) or 0
@@ -1221,8 +1233,9 @@ function MI2_RecordLocationAndType( mobIndex, mobData )
 		MI2_StoreLocation( mobIndex, mobData.location )
 	end
 
---	if MobInfoConfig.SaveBasicInfo == 1 and mobData.mobType > 1 then
-	if MobInfoConfig.SaveBasicInfo == 1 then
+-- Fixed in version 11302.04 We can't save BasicInfo here if in previous steps mobData got combined.
+--	if MobInfoConfig.SaveBasicInfo == 1 and MobInfoConfig.CombinedMode == 0 then
+	if MobInfoConfig.SaveBasicInfo == 1 and MobInfoConfig.CombinedMode == 0 then
 		MI2_StoreBasicInfo( mobIndex, mobData )
 	end
 end -- MI2_RecordLocationAndType()
@@ -2228,7 +2241,7 @@ function MI2_BuildItemDataTooltip( itemName )
 			resultList[mobName] = itemData
 			sortList[numMobs] = itemData
 		end
-
+		
 		itemData.loots = itemData.loots + (mobData.loots or 0)
 		itemData.count = itemData.count + itemAmount
 		if itemData.loots > 0 then
