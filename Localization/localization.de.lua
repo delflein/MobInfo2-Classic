@@ -43,6 +43,7 @@ MI_TXT_WRONG_DBVER		= "FEHLER : Die MobInfo Datenbank is zu alt f\195\188r diese
 MI_TXT_PRICE			= "H\195\164ndler Preis f\195\188r "
 MI_TXT_TOOLTIP_MOVE		= "Der Tooltip Anker kann durch einfaches\nClick&Ziehen an eine neue Position verschoben werden"
 MI_TXT_ITEMFILTER		= "Item Filter"
+MI_TXT_UNKNOWN			= "Unbekannt"
 
 MI2_CHAT_MOBRUNS = "versucht zu fl\195\188chten"
 MI2_TXT_MOBRUNS = "*fl\195\188chtet*"

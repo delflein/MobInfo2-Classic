@@ -45,6 +45,7 @@ MI_TXT_WRONG_DBVER		= "錯誤：MobInfo資料庫不相容於目前的版本.\n\n
 MI_TXT_PRICE			= "商人買入價"
 MI_TXT_TOOLTIP_MOVE		= "要移動工具提示錨點\n只要利用滑鼠拖拉的方式拉到你想要的位置即可."
 MI_TXT_ITEMFILTER		= "拾取物品過濾"
+MI_TXT_UNKNOWN			= "Unknown"
 
 MI2_CHAT_MOBRUNS		= "想要轉身逃跑"
 MI2_TXT_MOBRUNS			= "*逃跑*"

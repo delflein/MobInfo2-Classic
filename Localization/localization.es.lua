@@ -46,6 +46,7 @@ MI_TXT_WRONG_DBVER		= "ERROR : Tu base de datos de MobInfo es demasiado vieja y 
 MI_TXT_PRICE			= "Precio en vendedor "
 MI_TXT_TOOLTIP_MOVE		= "Para cambiar la posición haz click y\narrastra hasta la nueva posición"
 MI_TXT_ITEMFILTER		= "Filtrar objetos"
+MI_TXT_UNKNOWN			= "Unknown"
 
 MI2_CHAT_MOBRUNS = "intentos de huida"
 MI2_TXT_MOBRUNS = "*huidas*"

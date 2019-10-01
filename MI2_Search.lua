@@ -390,8 +390,11 @@ function MI2_ShowSearchResultTooltip(self)
 		if MI2_SearchOptions.ListMode == "Mobs" then
 			local index = MI2_SearchResultList[selection].idx
 			local mobName, mobLevel = MI2_GetIndexComponents( index )
-			-- create Mob data tooltip with full location info
-			MI2_CreateTooltip( mobName, mobLevel, nil, true )
+			-- create Mob data tooltip with full location info, shows only to WoW Default Tooltip for compatibility.
+			local mobData = MI2_BuildTooltipMob( mobName, mobLevel, nil, true )
+			MI2_UpdateGameTooltip( mobData, mobName, nil )
+			-- Shows as anchor on the side.
+			--MI2_CreateTooltip( mobName, mobLevel, nil, true )
 		elseif MI2_SearchOptions.ListMode == "Items" then
 			GameTooltip_SetDefaultAnchor( GameTooltip, UIParent )
 			local itemName = MI2_SearchResultList[selection].idx
@@ -453,7 +456,7 @@ function MI2_SearchForMobs( searchLimit )
 	for mobIndex, mobInfo in pairs(MobInfoDB) do
 		if mobInfo.sf then
 			searchCount = searchCount + 1
-MI2_SearchCount = MI2_SearchCount + 1
+			MI2_SearchCount = MI2_SearchCount + 1
 			mobInfo.sf = nil 
 			mobName, mobLevel = MI2_GetIndexComponents( mobIndex )
 			mobData = MI2_CheckMob( mobInfo, mobName, mobLevel )

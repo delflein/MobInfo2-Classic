@@ -272,30 +272,43 @@ function MI2_GetUnitBasedMobData( mobIndex, mobData, unitId )
     -- get mobs PPP and calculate max health (can be done without unitId)
 
 	if not unitId then 
-		mobData.healthText = "0/"..(mobData.healthMax or "???")
+		local hpData = MobHealthDB[mobIndex]
+		if not hpData then
+			mobData.healthText = MI_TXT_UNKNOWN
+		else
+			local healthPoints, healthPercentage = MI2_HpDecode( hpData )
+			mobData.healthText = healthPoints.." HP"
+		end
 	else
 		---------------------------------------------------
 		local mobPPP = MobHealth_PPP(mobIndex)
-		if mobPPP <= 0 then mobPPP = 1 end
-		mobData.healthMax = floor(mobPPP * 100 + 0.5)
-		-- obtain unit specific values if unitId is given
-		if UnitHealthMax(unitId) == 100 then
-			mobData.healthCur = floor(mobPPP * UnitHealth(unitId) + 0.5)
+		-- if mobPPP is less or equal to 0 --> We do not know the health of the Mob yet. So we print Unknown.
+		if mobPPP <= 0 then 
+			mobData.healthText = MI_TXT_UNKNOWN
 		else
-			mobData.healthCur = UnitHealth(unitId)
+			-- Otherwise calculate the assumed Health based on PPP
+			mobData.healthMax = floor(mobPPP * 100 + 0.5)
+			
+			-- WoW Classic API only gives us the current health in percentage.
+			mobData.healthCurPct = UnitHealth(unitId)
+			mobData.healthCur = floor(mobPPP * mobData.healthCurPct + 0.5)
+			
+		
+			--  why is the above necessary? just use values from the server
+			---------------------------------------------------------------------
+			--mobData.healthMax = UnitHealthMax( unitId )
+			--mobData.healthCur = UnitHealth( unitId )
+
+			-- Cause Classic is Back B***Ch
+			-------------------------------------------------------------------
+
+			mobData.healthText = mobData.healthCur.."/"..mobData.healthMax
 		end
-	
-		--  why is the above necessary? just use values from the server
-		---------------------------------------------------------------------
-		--mobData.healthMax = UnitHealthMax( unitId )
-		--mobData.healthCur = UnitHealth( unitId )
+		-- Power / Mana Calculations
+		
 		mobData.manaCur = UnitPower( unitId )
 		mobData.manaMax = UnitPowerMax( unitId )
-
-		-- Cause Classic is Back B***Ch
-		-------------------------------------------------------------------
-
-		mobData.healthText = mobData.healthCur.."/"..mobData.healthMax
+			
 		if mobData.manaMax > 0 then
 			mobData.manaText = mobData.manaCur.."/"..mobData.manaMax
 		end
