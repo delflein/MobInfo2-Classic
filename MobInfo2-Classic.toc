@@ -38,7 +38,7 @@ MI2_Slash.lua
 MI2_Search.lua
 MI2_Config.lua
 MI2_Tooltip.lua
-DataDumper.lua
+# DataDumper.lua
 
 ## frame definition files
 Frames\MobInfo2.xml
