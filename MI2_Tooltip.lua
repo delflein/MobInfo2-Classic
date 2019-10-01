@@ -297,7 +297,7 @@ end -- MI2_EntryToString
 --
 -- Add info about Mob to the standard game tooltip
 --
-local function MI2_UpdateGameTooltip( mobData, mobName, unit )
+function MI2_UpdateGameTooltip( mobData, mobName, unit )
 	if not unit then
 		GameTooltip_SetDefaultAnchor( GameTooltip, UIParent )
 		GameTooltip:ClearLines()

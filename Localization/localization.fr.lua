@@ -47,6 +47,7 @@ MI_TXT_WRONG_DBVER		= "ERROR : Your MobInfo database is too old and not compatib
 MI_TXT_PRICE			= "Vendor Price for "
 MI_TXT_TOOLTIP_MOVE		= "To move the tooltip anchor simply\nclick&drag it to a new location on screen"
 MI_TXT_ITEMFILTER		= "Filtre d\'Objets"
+MI_TXT_UNKNOWN			= "Unknown"
 
 MI2_CHAT_MOBRUNS = "essaie de s'enfuir"
 MI2_TXT_MOBRUNS = "*s'enfuir*"
