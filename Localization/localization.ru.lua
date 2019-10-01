@@ -1,4 +1,4 @@
-﻿-- 
+-- 
 -- Russian Localisation for MobInfo
 --
 -- created by StingerSoft aka Эритнулл

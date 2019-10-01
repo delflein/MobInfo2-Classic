@@ -1,4 +1,4 @@
-﻿--
+--
 -- Spanish localization for MobInfo
 --
 -- original version by an anonymous benefactor
