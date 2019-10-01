@@ -3,6 +3,20 @@ legend:
 * = changed feature (bugfixes, changed behavior, etc.)
 - = removed feature
 
+version 11302.06
+* Fixed a bug, where skinCount was decoded with a 0 value
+* Fixed a bug, where the Spell_Succeeded Event had nil values. (Changes in WoW API)
+
+version 11302.05
++ Added option to make tooltip clickthrough
++ Added option to toogle ClassInfo on or off
+
+version 11302.04
+* Fixed and Issue with wrongly stored Values while combined Mobs are active
+
+version 11302.03
+* Changed Versioning and started Releasing on CurseForge Project
+
 version 1.13.2.2 - (08.09.2019)
 * Fixed an Error when mapID was nil in dungeons.
 
