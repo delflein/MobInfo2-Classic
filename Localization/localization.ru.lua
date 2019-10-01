@@ -184,6 +184,9 @@ MI2_OPTIONS["MI2_OptCompactMode"] =
 MI2_OPTIONS["MI2_OptOtherTooltip"] =
 { text = "Скрыть другие подсказки"; help = "Скрыть другие подсказки когда показывается информация о существе в\nподсказке MobInfo." }
 
+MI2_OPTIONS["MI2_OptClickThrough"] =
+{ text = "Click-through Tooltip"; help = "Enables clicking though the MobInfo tooltip." }
+
 MI2_OPTIONS["MI2_OptSearchMinLevel"] = 
 { text = "Мин"; help = "минимальный уровень существа для поиска"; }
 
