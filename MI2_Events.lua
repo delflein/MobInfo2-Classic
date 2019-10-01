@@ -466,7 +466,22 @@ local function MI2_EventSpellSucceeded(self, event, caster, spell, id)
 	end
 end -- MI2_EventSpellPeriodic()
 
+-----------------------------------------------------------------------------
+-- MI2_EventModifierStateChanged()
+--
+-- handler for event "MODIFIER_STATE_CHANGED"
+-- checks if a modifier key is up or down (alt, ctrl, shift)
+-- possible values for key: string - "LSHIFT", "RSHIFT", "LCTRL", "RCTRL", "LALT", "RALT"
+-- possible values for down: number - 1 for pressed, 0 for released
 
+local function MI2_EventModifierStateChanged(self, event, key, down)
+	if MobInfoConfig.KeypressMode == 0 then return end
+	if UnitName("mouseover") and (key == "LALT" or key == "RALT") and down == 1 then 
+		MI2_TooltipMouseoverUnit()
+	elseif down == 0 then
+		MI2_HideTooltip()
+	end
+end
 
 -----------------------------------------------------------------------------
 -- MI2_EventSpellPeriodic()
@@ -774,7 +789,9 @@ function MI2_OnLoad(self)
 --		CHAT_MSG_SPELL_PERIODIC_CREATURE_DAMAGE = {f=MI2_EventSpellPeriodic, char=1},
 --		CHAT_MSG_COMBAT_PET_HITS = {f=MI2_EventPetMelee, char=1},
 --		CHAT_MSG_SPELL_PET_DAMAGE = {f=MI2_EventPetSpell, char=1},
-		UNIT_SPELLCAST_SUCCEEDED ={f=MI2_EventSpellSucceeded, char=1}
+		UNIT_SPELLCAST_SUCCEEDED ={f=MI2_EventSpellSucceeded, char=1},
+-- 		Event for Modifier Keys (Shift, Alt, Ctrl)
+		MODIFIER_STATE_CHANGED = {f=MI2_EventModifierStateChanged, always=1}
 	}
 
 	MI2_ChatScanStrings = {
