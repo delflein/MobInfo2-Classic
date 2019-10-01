@@ -407,10 +407,10 @@ function MI2_DecodeBasicMobData( mobInfo, mobData, mobIndex )
 
 	-- decode mob basic info: loots, empty loots, experience, cloth count, money looted, item value looted, mob type
 	if mobInfo.bi then
-		printf("BI: %s", mobInfo.bi)
+		-- printf("BI: %s", mobInfo.bi)
 		-- We have to omit start and endIndex of the found String.
 		local _, _, loots,emptyLoots,copper,itemValue,clothCount,spacecHolder,mobType,skinCount = string.find( mobInfo.bi, "(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)")
-		printf("loots: %s, emptyLoots: %s, copper: %s, itemValue: %s, clothCount: %s, spaceHolder: %s, mobType: %s, skinCount: %s", loots,emptyLoots,copper,itemValue,clothCount,spacecHolder,mobType,skinCount)
+		-- printf("loots: %s, emptyLoots: %s, copper: %s, itemValue: %s, clothCount: %s, spaceHolder: %s, mobType: %s, skinCount: %s", loots,emptyLoots,copper,itemValue,clothCount,spacecHolder,mobType,skinCount)
 		mobData.loots		= tonumber(loots) or 0
 		mobData.emptyLoots	= tonumber(emptyLoots) or 0
 		mobData.copper		= tonumber(copper) or 0
@@ -419,7 +419,7 @@ function MI2_DecodeBasicMobData( mobInfo, mobData, mobIndex )
 		spaceHolder			= tonumber(spaceHolder) or 0
 		mobData.mobType		= tonumber(mobType) or 0
 		mobData.skinCount	= tonumber(skinCount) or 0
-		printf("After toNumber: loots %d, empty %d, copper %d, value %d, cloth %d, type %d, skins %d", mobData.loots, mobData.emptyLoots, mobData.copper, mobData.itemValue, mobData.clothCount, mobData.mobType, mobData.skinCount)
+		-- printf("After toNumber: loots %d, empty %d, copper %d, value %d, cloth %d, type %d, skins %d", mobData.loots, mobData.emptyLoots, mobData.copper, mobData.itemValue, mobData.clothCount, mobData.mobType, mobData.skinCount)
 	end
 
 	if mobData.mobType and mobData.mobType > 10 then
@@ -597,7 +597,6 @@ local function MI2_StoreBasicInfo( mobIndex, mobData )
 						(mobData.skinCount or "")
 	if basicInfo ~= "///////" then
 		mobInfo.bi = basicInfo
-		printf("Test Save")
 	end
 
 	local qualityInfo = (mobData.r1 or "").."/"..
