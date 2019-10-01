@@ -147,9 +147,11 @@ local function MI2_EventLootOpened(self, event, ...)
 	if isReopen then
 	-- check for targetted tradeskill use, and permit one exception
 		if MI2_TradeskillUsed then
-			link = GetSpellLink(MI2_TradeskillUsed)
+			-- link = GetSpellLink(MI2_TradeskillUsed)
 			-- printf(MI_LightBlue.."<MI2> "..MI_White.."Recorded "..link.." gather from "..UnitClass("target").." "..MI_Gray.."(id "..isReopen..")")
 			MI2_TradeskillUsed = nil
+			MI2_RecordAllLootItems( mobIndex, numItems, true )
+			return
 		else
 			-- printf(MI_LightBlue.."<MI2> "..MI_White.."Drop data from reopened "..UnitClass("target").." is tainted and will not be recorded. "..MI_Gray.."(id "..isReopen..")")
 			return
@@ -157,7 +159,7 @@ local function MI2_EventLootOpened(self, event, ...)
 	end	
 
 	-- record all loot found on the corpse (called each time to catch skinning))
-	MI2_RecordAllLootItems( mobIndex, numItems )
+	MI2_RecordAllLootItems( mobIndex, numItems, false )
 end -- MI2_EventLootOpened()
 
 --[[
@@ -452,7 +454,7 @@ KarniCrap_tradeskillList = {
 -- checks for successfully skinning, mining, or herbalizing a mob
 --
 
-local function MI2_EventSpellSucceeded(self, event, caster, spell, _, _, id)
+local function MI2_EventSpellSucceeded(self, event, caster, spell, id)
 	if caster=="player" and MI2_Target.mobIndex then
 	-- the spell was cast on a mob... is it a tradeskill?
 		link = GetSpellLink(id)

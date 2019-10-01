@@ -407,19 +407,19 @@ function MI2_DecodeBasicMobData( mobInfo, mobData, mobIndex )
 
 	-- decode mob basic info: loots, empty loots, experience, cloth count, money looted, item value looted, mob type
 	if mobInfo.bi then
-		--17/4/0/118/0///0
-		local a,b,lt,el,cp,iv,cc,c,mt,sc = string.find( mobInfo.bi, "(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)")
-		a = tonumber(a) or 0
-		b = tonumber(b) or 0
-		mobData.loots		= tonumber(lt) or 0
-		mobData.emptyLoots	= tonumber(el) or 0
-		mobData.copper		= tonumber(cp) or 0
-		mobData.itemValue	= tonumber(iv) or 0
-		mobData.clothCount	= tonumber(cc) or 0
-		c = tonumber(c) or 0
-		mobData.mobType		= tonumber(mt) or 0
-		mobData.skinCount	= tonumber(sc) or 0
-		--printf("bi: %s, loots %d, empty %d, copper %d, value %d, cloth %d, type %d, skins %d", mobInfo.bi, mobData.loots, mobData.emptyLoots, mobData.copper, mobData.itemValue, mobData.clothCount, mobData.mobType, mobData.skinCount)
+		printf("BI: %s", mobInfo.bi)
+		-- We have to omit start and endIndex of the found String.
+		local _, _, loots,emptyLoots,copper,itemValue,clothCount,spacecHolder,mobType,skinCount = string.find( mobInfo.bi, "(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)/(%d*)")
+		printf("loots: %s, emptyLoots: %s, copper: %s, itemValue: %s, clothCount: %s, spaceHolder: %s, mobType: %s, skinCount: %s", loots,emptyLoots,copper,itemValue,clothCount,spacecHolder,mobType,skinCount)
+		mobData.loots		= tonumber(loots) or 0
+		mobData.emptyLoots	= tonumber(emptyLoots) or 0
+		mobData.copper		= tonumber(copper) or 0
+		mobData.itemValue	= tonumber(itemValue) or 0
+		mobData.clothCount	= tonumber(clothCount) or 0
+		spaceHolder			= tonumber(spaceHolder) or 0
+		mobData.mobType		= tonumber(mobType) or 0
+		mobData.skinCount	= tonumber(skinCount) or 0
+		printf("After toNumber: loots %d, empty %d, copper %d, value %d, cloth %d, type %d, skins %d", mobData.loots, mobData.emptyLoots, mobData.copper, mobData.itemValue, mobData.clothCount, mobData.mobType, mobData.skinCount)
 	end
 
 	if mobData.mobType and mobData.mobType > 10 then
@@ -504,7 +504,6 @@ function MI2_DecodeCharData( mobInfo, mobData, playerName, mobIndex )
 		mobData.maxDamage	= tonumber(maxd) or 0
 		mobData.dps			= tonumber(dps) or 0
 		mobData.xp			= tonumber(xp) or 0
-		mobData.skinCount	= tonumber(sc) or 0
 	end
 end -- MI2_DecodeCharData
 
@@ -592,11 +591,13 @@ local function MI2_StoreBasicInfo( mobIndex, mobData )
 						(mobData.emptyLoots or "").."/"..
 						(mobData.copper or "").."/"..
 						(mobData.itemValue or "").."/"..
-						(mobData.clothCount or "").."//"..
+						(mobData.clothCount or "").."/"..
+						"0".."/".. -- spaceHolder in decode ... dunno where from /therealhypo
 						(mobType or "").."/"..
 						(mobData.skinCount or "")
 	if basicInfo ~= "///////" then
 		mobInfo.bi = basicInfo
+		printf("Test Save")
 	end
 
 	local qualityInfo = (mobData.r1 or "").."/"..
@@ -1774,7 +1775,9 @@ end -- MI2_RecordLootSlotData()
 --
 
 -- this is getting called TWICE on random occasions
-function MI2_RecordAllLootItems( mobIndex, numItems )
+-- boolean reopen is true, if the reopen was done by a TradeSkill e.g. Skinning, Herbalism, Engineering
+function MI2_RecordAllLootItems( mobIndex, numItems, reopen )
+
 	local gatheredLoot = false
 	local mobData = MI2_FetchMobData( mobIndex )
 	if not mobData then return end
@@ -1786,8 +1789,8 @@ function MI2_RecordAllLootItems( mobIndex, numItems )
 		gatheredLoot = gatheredLoot or isGathered
 	end -- for loop
 
-	-- TODO: everything is treated as skinning loot atm
-	if gatheredLoot then
+	-- if loot window is reopened through a TradeSkill, increment SkinCount ( includes Herbalism on Treants, Engineering on Robots etc.) 
+	if reopen then
 		mobData.skinCount = (mobData.skinCount or 0) + 1
 	else
 		-- update loot and empty loot counter
