@@ -118,6 +118,12 @@ function MI2_SetupTooltip()
 	if MobInfoConfig.SmallFont == 1 then
 		ttfont = GameFontNormalSmall
 	end
+	-- set tooltip click-through
+	if MobInfoConfig.ClickThrough == 1 then
+		MI2_TooltipFrame:EnableMouse( false )
+		else
+			MI2_TooltipFrame:EnableMouse( true )
+	end
 	for idx=1,MI2_MaxNumLines do
 		_G["MI2TT_Text"..idx]:SetFontObject(ttfont)
 		_G["MI2TT_Val"..idx]:SetFontObject(ttfont)
