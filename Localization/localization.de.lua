@@ -185,6 +185,9 @@ MI2_OPTIONS["MI2_OptCompactMode"] =
 MI2_OPTIONS["MI2_OptOtherTooltip"] =
 { text = "Verberge zweiten Tooltip"; help = "Verbirgt den zweiten Tooltip whenn Mob Informationen im\nMobInfo Tooltip angezeigt werden." }
 
+MI2_OPTIONS["MI2_OptClickThrough"] =
+{ text = "Click-through Tooltip"; help = "Enables clicking though the MobInfo tooltip." }
+
 MI2_OPTIONS["MI2_OptSearchMinLevel"] = 
 { text = "Min"; help = "Minimaler mob level f\195\188r Suche"; }
 
