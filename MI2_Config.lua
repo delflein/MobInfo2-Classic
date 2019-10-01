@@ -17,6 +17,7 @@ MI2_OPTIONS["MI2_OptShowNo2lev"] 	= { data="mob2Level"; text=MI_TXT_TO_LEVEL; he
 MI2_OPTIONS["MI2_OptShowEmpty"] 	= { data="emptyLoots"; text=MI_TXT_EMPTY_LOOTS; help=MI_HLP_EMPTY_LOOTS }
 MI2_OPTIONS["MI2_OptShowCloth"] 	= { data="clothCount"; text=MI_TXT_CLOTH_DROP; help=MI_HLP_CLOTH_DROP }
 MI2_OPTIONS["MI2_OptShowDamage"] 	= { data="dmgText"; t=2; text=MI_TXT_DAMAGE; help=MI_HLP_DAMAGE }
+MI2_OPTIONS["MI2_OptShowClassInfo"] = { data="classInfoText"; text=MI_TXT_CLASSINFO; help=MI_HLP_CLASSINFO }
 MI2_OPTIONS["MI2_OptShowDps"] 		= { data="dps"; text="DPS"; help=MI_HLP_DPS }
 MI2_OPTIONS["MI2_OptShowLocation"]	= { data="loc"; t=3; text=MI_TXT_LOCATION; help=MI_HELP_LOCATION }
 MI2_OPTIONS["MI2_OptShowQuality"]	= { data="qualityStr"; opt=MI_OPT_QUALITY; text=MI_TXT_QUALITY; help=MI_HLP_QUALITY }

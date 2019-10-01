@@ -207,7 +207,7 @@ end -- MI2_AddMessage()
  function MI2_InitOptions()
 	-- defaults for all MobInfo config options
 	local MI2_OptDefaults = {
-		ShowHealth=1, ShowMana=0, ShowXp=1, ShowNo2lev=1, ShowKills=0, ShowLoots=1, ShowTotal=1,
+		ShowHealth=1, ShowClassInfo=1, ShowMana=0, ShowXp=1, ShowNo2lev=1, ShowKills=0, ShowLoots=1, ShowTotal=1,
 		ShowCoin=0, ShowIV=0, ShowEmpty=0, ShowLowHpAction=1, ShowCloth=1, ShowDamage=1,
 		ShowDps=1, ShowLocation=1, ShowQuality=1, ShowResists=1, ShowImmuns=1, ShowItems=1,
 		ShowClothSkin=1, MouseTooltip=1, SaveBasicInfo=1, KeypressMode = 0, SavePlayerHp = 0,
@@ -2362,7 +2362,11 @@ function MI2_BuildTooltipMob( mobName, mobLevel, unit, isMob )
 	mobData.levelInfo = MI2_ColorToText(col.r,col.g,col.b).."["..levelInfo.."] " 
 
 	-- build various content to be shown in the tooltip
-	MI2_BuildMobClassInfo( mobData, isMob )
+	if MobInfoConfig.ShowClassInfo == 1 then
+		MI2_BuildMobClassInfo( mobData, isMob )
+	else
+		mobData.classInfo = nil
+	end
 	MI2_BuildQualityString( mobData )
 	MI2_BuildItemsList( mobData )
 	if MobInfoConfig.ShowResists == 1 then

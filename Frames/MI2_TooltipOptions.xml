@@ -25,44 +25,42 @@
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowHealth" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowNo2lev" inherits="MI2_CheckboxTemplate">
 						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowXp" relativePoint="TOPRIGHT">
-								<Offset x="65" y="0" /></Anchor></Anchors></CheckButton>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowMana" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowKills" inherits="MI2_CheckboxTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowXp" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowLoots" inherits="MI2_CheckboxTemplate">
 						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowKills" relativePoint="TOPRIGHT">
-								<Offset x="65" y="0" /></Anchor></Anchors></CheckButton>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowNo2lev" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowCloth" inherits="MI2_CheckboxTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowKills" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowEmpty" inherits="MI2_CheckboxTemplate">
 						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowCloth" relativePoint="TOPRIGHT">
-								<Offset x="65" y="0" /></Anchor></Anchors></CheckButton>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowLoots" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowTotal" inherits="MI2_CheckboxTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowCloth" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowCoin" inherits="MI2_CheckboxTemplate">
 						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowTotal" relativePoint="TOPRIGHT">
-								<Offset x="65" y="0" /></Anchor></Anchors></CheckButton>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowEmpty" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowIV" inherits="MI2_CheckboxTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowTotal" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
+					<CheckButton name="MI2_OptShowClassInfo" inherits="MI2_CheckboxTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowCoin" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowDamage" inherits="MI2_CheckboxTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowIV" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowDps" inherits="MI2_CheckboxTemplate" hidden="true"></CheckButton>
+					<CheckButton name="MI2_OptShowImmuns" inherits="MI2_CheckboxTemplate" hidden="true"></CheckButton>
 					<CheckButton name="MI2_OptShowLocation" inherits="MI2_CheckboxTemplate">
 						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowDamage" relativePoint="TOPRIGHT">
-								<Offset x="65" y="0" /></Anchor></Anchors></CheckButton>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowClassInfo" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptShowResists" inherits="MI2_CheckboxTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowDamage" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
-					<CheckButton name="MI2_OptShowImmuns" inherits="MI2_CheckboxTemplate" hidden="true"></CheckButton>
 					<CheckButton name="MI2_OptShowLowHpAction" inherits="MI2_CheckboxTemplate">
 						<Anchors>
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptShowResists" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
