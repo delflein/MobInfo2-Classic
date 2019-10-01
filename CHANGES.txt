@@ -1,0 +1,80 @@
+lightweight tag 3eab29f7f0ee72f040d99216806a828e8929e7d3 11302.04
+Author:	GitHub <noreply@github.com>
+Date:	Wed Sep 18 23:35:27 2019 +0200
+
+commit 264b1471492e296f7c144d00ca3a0f4e60e69260
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 15:50:13 2019 +0200
+
+    Removed some debugging lines.
+
+commit 264b1471492e296f7c144d00ca3a0f4e60e69260
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 15:50:13 2019 +0200
+
+    Removed some debugging lines.
+
+commit 4d3201ade48e68659810f15e277742427dc60be1
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 15:49:51 2019 +0200
+
+    Rerolled false commited changes.
+
+commit 39164768dd3de03a1e5f389b9877c6964ea9aba3
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 15:47:02 2019 +0200
+
+    Removed some debugging lines.
+
+commit dd68c8738f99e792bed8f0d5a3f7a216282f7070
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 15:43:24 2019 +0200
+
+    Fixed an Issue where Combined MobData got saved.
+
+commit 4182409ff66aff02975279a4c8a7fb5141f095c3
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 13:05:10 2019 +0200
+
+    Update MobInfo2-Classic.toc
+
+commit 604eee77e0d88c3b2aee9ef8f53a1a591a6d910a
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 13:04:38 2019 +0200
+
+    Changing Version numbering
+    
+    <Interface Version>.<Addon Version>
+
+commit 62f522cd7b692a939e3adbe8c41307bae4381f3b
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 12:53:17 2019 +0200
+
+    Create MI2_Import.lua
+
+commit 9600fa022205ade49d5aeb824066e66e09b245cd
+Author: TheRealHypo <DominikElflein@gmail.com>
+Date:   Wed Sep 18 12:38:31 2019 +0200
+
+    Delete MI2_Import.lua
+    
+    Don't need an Import File in the Codebase.
+
+commit c1c7f992572f01db14686586a575cd484730c5a2
+Author: Scoboose <swhitehill@gmail.com>
+Date:   Wed Sep 11 20:46:12 2019 -0500
+
+    Registering addon with titan panel
+
+commit c1c7f992572f01db14686586a575cd484730c5a2
+Author: Scoboose <swhitehill@gmail.com>
+Date:   Wed Sep 11 20:46:12 2019 -0500
+
+    Registering addon with titan panel
+
+commit 3e57c5d825d9955d888fa45d4e10840ceed8568b
+Author: Scoboose <swhitehill@gmail.com>
+Date:   Wed Sep 11 20:45:07 2019 -0500
+
+    Needed for registering with titan panel
+
