@@ -392,7 +392,6 @@ function MI2_ShowSearchResultTooltip(self)
 			local mobName, mobLevel = MI2_GetIndexComponents( index )
 			-- create Mob data tooltip with full location info, shows only to WoW Default Tooltip for compatibility.
 			local mobData = MI2_BuildTooltipMob( mobName, mobLevel, nil, true )
-			-- Add Unit Based Information if PPP is available
 			MI2_UpdateGameTooltip( mobData, mobName, nil )
 			-- Shows as anchor on the side.
 			--MI2_CreateTooltip( mobName, mobLevel, nil, true )
