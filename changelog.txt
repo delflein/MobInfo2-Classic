@@ -3,6 +3,10 @@ legend:
 * = changed feature (bugfixes, changed behavior, etc.)
 - = removed feature
 
+version 11302.07
+* Unknown mobs now don't show 100/100 health anymore
+* Fixed a bug where the tooltip did not appear if keypress mode is active
+
 version 11302.06
 * Fixed a bug, where skinCount was decoded with a 0 value
 * Fixed a bug, where the Spell_Succeeded Event had nil values. (Changes in WoW API)
