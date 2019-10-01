@@ -197,6 +197,9 @@ MI2_OPTIONS["MI2_OptOtherTooltip"] =
 			{ text = "關閉其它工具提示"; 
 			help = "當工具提示顯示怪物資訊時關閉其它的提示訊息." }
 
+MI2_OPTIONS["MI2_OptClickThrough"] =
+{ text = "Click-through Tooltip"; help = "Enables clicking though the MobInfo tooltip." }
+
 MI2_OPTIONS["MI2_OptSearchMinLevel"] = 
 			{ text = "最小"; 
 			help = "搜尋怪物時的最小等級限制"; }

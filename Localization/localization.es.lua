@@ -184,6 +184,9 @@ choice1="Arriba-izquierda"; choice2="Abajo-izquierda"; choice3="Arriba-derecha";
 MI2_OPTIONS["MI2_OptCompactMode"] =
 { text = "Ventana en dos columnas"; help = "Muestra la información de las criaturas en una ventana mas compacta de dos columnas.\nLa ventana será de algún modo un poco mas ancha, pero considerablemente mas corta.\nLa anchura total está limitada. Las descripciones que sean demasiado anchas\nse mostrarán en una línea separada." }
 
+MI2_OPTIONS["MI2_OptClickThrough"] =
+{ text = "Click-through Tooltip"; help = "Enables clicking though the MobInfo tooltip." }
+
 MI2_OPTIONS["MI2_OptOtherTooltip"] =
 { text = "Ocultar ventaja del juego"; help = "Esconde la ventana del juego cuando se muestra la información\nde la criatura, en la ventana de MobInfo." }
 

@@ -173,7 +173,7 @@
 			<!-- ================================================ -->
 			<!-- frame around MobInfo tooltip layout options box  -->
 			<Frame name="MI2_FrmTooltipLayout" inherits="MI2_OptionsBoxTemplate" >
-				<Size x="215" y="190" />
+				<Size x="215" y="200" />
 				<Layers>
 					<Layer level="ARTWORK">
 						<FontString name="MI2_TxtTooltipMove" inherits="MI2TT_ValTemplate" text="MI_TXT_TOOLTIP_MOVE" justifyH="LEFT" justifyV="BOTTOM" >
@@ -204,7 +204,10 @@
 							<Anchor point="TOPLEFT" relativeTo="MI2_OptCompactMode" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
 					<CheckButton name="MI2_OptOtherTooltip" inherits="MI2_CheckboxTemplate">
 						<Anchors>
-							<Anchor point="TOPLEFT" relativeTo="MI2_OptHideAnchor" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton></Frames></Frame>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptHideAnchor" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton>
+					<CheckButton name="MI2_OptClickThrough" inherits="MI2_CheckboxTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="MI2_OptOtherTooltip" relativePoint="BOTTOMLEFT"/></Anchors></CheckButton></Frames></Frame>
 			<!-- ================================================ -->
 			<!-- frame around item tooltip options box            -->
 			<Frame name="MI2_FrmItemTooltip" inherits="MI2_OptionsBoxTemplate" >

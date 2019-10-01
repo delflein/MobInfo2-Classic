@@ -212,7 +212,7 @@ end -- MI2_AddMessage()
 		ShowDps=1, ShowLocation=1, ShowQuality=1, ShowResists=1, ShowImmuns=1, ShowItems=1,
 		ShowClothSkin=1, MouseTooltip=1, SaveBasicInfo=1, KeypressMode = 0, SavePlayerHp = 0,
 		ShowMobInfo=1, ShowItemInfo=1, ShowTargetInfo=1, ShowMMButton=1, MMButtonPos=257,
-		TooltipMode=4, SmallFont=1, OtherTooltip=1, ShowLowHpAction=1, ShowItems=1,
+		TooltipMode=4, SmallFont=1, ClickThrough=1, OtherTooltip=1, ShowLowHpAction=1, ShowItems=1,
 		ShowClothSkin=1, TargetFontSize=10, TargetHealth=1, TargetMana=1, HealthPercent=1,
 		ManaPercent=1, HealthPosX=-7, HealthPosY=11, ManaPosX=-7, ManaPosY=11, TargetFont=2,
 		CompactMode=1, SaveItems=1, SaveCharData=1, ItemsQuality=2, ItemTooltip=1,

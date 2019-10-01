@@ -185,6 +185,9 @@ choice1="Top Left"; choice2="Bottom Left"; choice3="Top Right"; choice4="Bottom 
 MI2_OPTIONS["MI2_OptCompactMode"] =
 { text = "Two Column Tooltip"; help = "Show the Mob infos in a more compact two column layout.\nThe tooltip will be somewhat wider, but considerably shorter.\nThe total width is limited. Infos that are too wide will be\nshown on a separate single line." }
 
+MI2_OPTIONS["MI2_OptClickThrough"] =
+{ text = "Click-through Tooltip"; help = "Enables clicking though the MobInfo tooltip." }
+
 MI2_OPTIONS["MI2_OptOtherTooltip"] =
 { text = "Hide the other Tooltip"; help = "Hides the other tooltip when showing Mob information\nin the MobInfo tooltip." }
 
