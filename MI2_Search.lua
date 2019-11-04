@@ -10,7 +10,7 @@
 MI2_SearchOptions = {}
 MI2_SearchOptions.MinLevel = 1
 MI2_SearchOptions.MaxLevel = 85
-MI2_SearchOptions.Normal = 1
+MI2_SearchOptions.Normal = true
 MI2_SearchOptions.Elite = 0
 MI2_SearchOptions.Boss = 0
 MI2_SearchOptions.MinLoots = 0
@@ -279,7 +279,9 @@ local function MI2_CheckMob( mobInfo, mobName, mobLevel )
 		MI2_DecodeBasicMobData( mobInfo, mobData )
 		mobData.loots = mobData.loots or 0
 		lootsOk = (mobData.loots >= MI2_SearchOptions.MinLoots) and (mobData.loots <= MI2_SearchOptions.MaxLoots)
-		typeOk = (MI2_SearchOptions.Normal == 1 and (mobData.mobType == 1 or not mobData.mobType)) or (MI2_SearchOptions.Elite == 1 and mobData.mobType == 2) or (MI2_SearchOptions.Boss == 1 and mobData.mobType == 3)
+		typeOk =   (MI2_SearchOptions.Normal == true and (mobData.mobType == 1 or mobData.mobType == 0 or not mobData.mobType))
+				or (MI2_SearchOptions.Elite == true and mobData.mobType == 4)
+				or (MI2_SearchOptions.Boss == true and mobData.mobType == 3)
 		if lootsOk and typeOk then
 			MI2_DecodeItemList( mobInfo, mobData )
 			if MI2_ItemsIdxList[0] then
@@ -453,7 +455,7 @@ function MI2_SearchForMobs( searchLimit )
 	for mobIndex, mobInfo in pairs(MobInfoDB) do
 		if mobInfo.sf then
 			searchCount = searchCount + 1
-MI2_SearchCount = MI2_SearchCount + 1
+			MI2_SearchCount = MI2_SearchCount + 1
 			mobInfo.sf = nil 
 			mobName, mobLevel = MI2_GetIndexComponents( mobIndex )
 			mobData = MI2_CheckMob( mobInfo, mobName, mobLevel )
